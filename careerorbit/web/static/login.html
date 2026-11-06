@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <title>Sign in · CareerOrbit AI</title>
+  <script>
+    (() => {
+      let preference = null;
+      try { preference = localStorage.getItem('careerorbit-theme'); } catch (_) { /* Storage may be unavailable. */ }
+      const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      document.documentElement.dataset.theme = preference === 'light' || preference === 'dark' ? preference : (systemPrefersLight ? 'light' : 'dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/static/design-system.css">
+</head>
+<body class="auth-page">
+<main class="auth-shell">
+  <h1>CareerOrbit AI</h1>
+  <p id="intro">Sign in to your private workspace.</p>
+  <form id="auth-form">
+    <div id="name-field" hidden>
+      <label for="display-name">Name</label>
+      <input id="display-name" name="display_name" autocomplete="name" maxlength="120">
+    </div>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" autocomplete="username" maxlength="254" required>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" minlength="12" maxlength="256" required>
+    <p class="hint" id="password-hint" hidden>Use at least 12 characters. This account will own an isolated local data store.</p>
+    <p id="error" role="alert" aria-live="polite"></p>
+    <button id="submit" type="submit">Sign in</button>
+    <button id="toggle" class="secondary" type="button">Create an account</button>
+  </form>
+</main>
+<script>
+(() => {
+  let registerMode = false;
+  const form = document.getElementById('auth-form');
+  const nameField = document.getElementById('name-field');
+  const displayName = document.getElementById('display-name');
+  const password = document.getElementById('password');
+  const submit = document.getElementById('submit');
+  const toggle = document.getElementById('toggle');
+  const error = document.getElementById('error');
+  const intro = document.getElementById('intro');
+  const hint = document.getElementById('password-hint');
+  const setMode = (isRegister, initialSetup = false) => {
+    registerMode = isRegister;
+    nameField.hidden = !registerMode;
+    displayName.required = registerMode;
+    password.autocomplete = registerMode ? 'new-password' : 'current-password';
+    hint.hidden = !registerMode;
+    submit.textContent = registerMode ? (initialSetup ? 'Create private workspace' : 'Create account') : 'Sign in';
+    toggle.textContent = registerMode ? 'Back to sign in' : 'Create an account';
+    intro.textContent = registerMode
+      ? (initialSetup ? 'Create the first account to secure this local workspace.' : 'Create a separate private CareerOrbit workspace.')
+      : 'Sign in to your private workspace.';
+    toggle.hidden = initialSetup;
+    error.textContent = '';
+  };
+  fetch('/api/auth/status').then((r) => r.json()).then((status) => setMode(status.setup_required, status.setup_required))
+    .catch(() => { error.textContent = 'Could not reach the local service. Start CareerOrbit and try again.'; });
+  toggle.addEventListener('click', () => setMode(!registerMode));
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    error.textContent = '';
+    const values = new FormData(form);
+    const endpoint = registerMode ? '/api/auth/register' : '/api/auth/login';
+    const payload = Object.fromEntries(values.entries());
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        credentials: 'same-origin'
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.detail || 'Sign-in failed.');
+      window.location.replace('/');
+    } catch (err) {
+      error.textContent = err.message || 'Could not complete sign-in.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

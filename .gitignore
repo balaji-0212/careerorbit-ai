@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / C extensions
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing, Coverage & Playwright
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.playwright-mcp/
+test-results/
+playwright-report/
+
+# Databases, Local Storage & User Data
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+auth.db
+data/
+
+# Deliverables, Releases & Archives
+dist/
+build/
+*.egg-info/
+*.zip
+*.tar.gz
+*.tar
+*.gz
+*.rar
+
+# Reports, Audit Artifacts & Legacy Folders
+reports/
+docs/
+legacy/
+careerorbit_*.md
+scratch_*.txt
+*.bak
+*.tmp
+*.log
+
+# Environment Variables, Secrets & Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+credentials.json
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini

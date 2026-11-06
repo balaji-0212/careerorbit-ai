@@ -1,0 +1,100 @@
+{
+  "personal": {
+    "full_name": "Alex Example",
+    "email": "alex@example.invalid",
+    "phone": "+1-555-0100",
+    "location": "Example City, Example Region",
+    "linkedin": "https://example.invalid/alex",
+    "github": "https://example.invalid/alex-code",
+    "work_authorization": "Example Region",
+    "notice_period_status": "Not provided",
+    "experience_level": "Early-career",
+    "salary_expectation": "Not provided",
+    "daily_study_hours": 1
+  },
+  "education": {
+    "degree": "Bachelor of Engineering",
+    "field_of_study": "Computer Engineering",
+    "institution": "Example State University",
+    "start_year": 2021,
+    "graduation_month": "May",
+    "graduation_year": 2025,
+    "cgpa": "3.5 / 4.0"
+  },
+  "employment": [
+    {
+      "employer": "Example Systems",
+      "role": "Associate Software Engineer",
+      "employment_type": "Full-time",
+      "location": "Example City",
+      "start_date": "January 2025",
+      "end_date": "Present",
+      "highlights": ["Built and tested software features in a collaborative engineering team."],
+      "skills_used": ["Python", "FastAPI", "SQL", "Git", "Automated Testing"]
+    },
+    {
+      "employer": "Sample Analytics",
+      "role": "Data Analyst Intern",
+      "employment_type": "Internship",
+      "location": "Example City",
+      "start_date": "July 2024",
+      "end_date": "October 2024",
+      "highlights": ["Automated reporting workflows and reduced manual reporting time by 40%."],
+      "skills_used": ["Python", "SQL", "Pandas", "Data Validation"]
+    }
+  ],
+  "documented_skills": {
+    "languages": ["Python", "SQL", "Java"],
+    "bi_and_analytics": ["Power BI", "DAX", "Excel", "Pandas", "NumPy", "ETL"],
+    "web_and_apis": ["FastAPI", "Flask", "REST APIs", "HTML5", "CSS3", "JavaScript"],
+    "ai_and_ml": ["TensorFlow", "OpenCV", "Scikit-learn", "Computer Vision"],
+    "cloud_and_tools": ["Git", "GitHub Actions", "Linux", "Jupyter Notebook"],
+    "learning_targets_cloud_data": ["PySpark Fundamentals", "Example Cloud Data Platform"]
+  },
+  "projects": [
+    {
+      "id": "proj_loan_analytics",
+      "name": "Sample Analytics Dashboard",
+      "timeline": "September 2024 – October 2024",
+      "technologies": ["Power BI", "DAX", "SQL Server"],
+      "category": "Data Analytics",
+      "highlights": ["Optimized database queries and improved dashboard performance by 35%."]
+    },
+    {
+      "id": "proj_emotionsense",
+      "name": "Sample Vision Application",
+      "timeline": "July 2024 – October 2024",
+      "technologies": ["Python", "TensorFlow", "Flask", "OpenCV"],
+      "category": "Machine Learning",
+      "highlights": ["Built a model evaluation pipeline with automated testing."]
+    },
+    {
+      "id": "proj_sales_bi",
+      "name": "Sample Sales Reporting Dashboard",
+      "timeline": "August 2024 – September 2024",
+      "technologies": ["Excel", "Power Query", "Power BI", "SQL"],
+      "category": "Business Intelligence",
+      "highlights": ["Created an interactive dashboard for sales and profitability analysis."]
+    },
+    {
+      "id": "proj_systolic_array",
+      "name": "Sample Hardware Research Project",
+      "timeline": "September 2023 – April 2024",
+      "technologies": ["Verilog HDL", "Python"],
+      "category": "Engineering Research",
+      "highlights": ["Designed and evaluated a fault-tolerant computation architecture."]
+    }
+  ],
+  "certifications": [
+    {"name": "Cloud Fundamentals", "issuer": "Example Academy", "date": "October 2024"}
+  ],
+  "priority_roles": {
+    "1": {"category": "Data Analyst / BI / Power BI / Reporting", "titles": ["Data Analyst", "Junior Data Analyst"], "resume_focus": "data_analyst"},
+    "2": {"category": "Data Scientist", "titles": ["Junior Data Scientist"], "resume_focus": "data_scientist"},
+    "3": {"category": "Software Engineer", "titles": ["Software Engineer", "Python Developer"], "resume_focus": "software_engineer"},
+    "4": {"category": "AI Engineer", "titles": ["AI Engineer", "ML Engineer"], "resume_focus": "ai_engineer"},
+    "5": {"category": "Data Engineer", "titles": ["Data Engineer"], "resume_focus": "data_engineer"},
+    "6": {"category": "Other Technical Roles", "titles": ["QA Engineer"], "resume_focus": "general"}
+  },
+  "location_preferences": {"primary": ["Example Region"], "remote_ok": true}
+}
